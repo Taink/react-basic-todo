@@ -12,7 +12,7 @@ function TodoList({ items }) {
 }
 
 const mapStateToProps = function (state) {
-  return { items: state.items };
+  return { items: state.todos };
 };
 
 export default connect(mapStateToProps)(TodoList);
