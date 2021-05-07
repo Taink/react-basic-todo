@@ -1,18 +1,18 @@
 import React from "react";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 
-function TodoList({items}){
+function TodoList({ items }) {
   return (
     <ul>
-      {items.map((item)=>{
+      {items.map((item) => {
         return <li>{item}</li>;
       })}
     </ul>
   );
 }
 
-const mapStateToProps = function (state){
-  return{items:state.items};
+const mapStateToProps = function (state) {
+  return { items: state.items };
 };
 
 export default connect(mapStateToProps)(TodoList);
