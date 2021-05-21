@@ -1,10 +1,19 @@
 import React from "react";
 import {connect} from "react-redux";
 
-function TodoTask ({item}) {
+function TodoTask ({items,todos, ...actions}) {
   return(
-    <li className="todo-item">
-      {item}
+    //const todoContent = todos[item]?.content || `[${item}]`
+    //const done = todos[item]?.done ? '(Y)' : '(N)' ?? '(?)'
+    <li key = {item} onClick={() => actions.toggleTodo(item)}>{done}
+    {todoContent}
     </li>
   );
 }
+
+
+
+export default connect(
+  null,
+  {toggleTodo}
+)(TodoTask);
