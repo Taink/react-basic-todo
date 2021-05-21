@@ -5,9 +5,13 @@
 }
 
 .todo-list li:hover {
-    list-style-type: disc;
+    list-style-type: circle;
 }
 
 .striked {
     text-decoration: line-through;
+}
+
+.todo-list li .striked :hover {
+    list-style-type: disc;
 }
