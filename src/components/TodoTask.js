@@ -12,6 +12,7 @@ function TodoTask({ todo, item, ...actions }) {
       onClick={() => actions.toggleTodo(item)}
     >
       {content}
+      <button onClick={()=> actions.removeTodo(item)}></button>
     </li>
   );
 }
