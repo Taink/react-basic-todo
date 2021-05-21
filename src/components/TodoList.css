@@ -1,0 +1,13 @@
+.todo-list li {
+    margin: 0.5rem;
+    list-style-type: none;
+    user-select: none;
+}
+
+.todo-list li:hover {
+    list-style-type: disc;
+}
+
+.striked {
+    text-decoration: line-through;
+}

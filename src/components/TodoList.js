@@ -1,14 +1,21 @@
-import React from "react";
-import { connect } from "react-redux";
+import React from 'react'
+import { connect } from 'react-redux'
 import { toggleTodo } from '../redux/action'
+import './TodoList.css';
 
 function TodoList({ items, todos, ...actions }) {
   return (
-    <ul>
+    <ul className='todo-list'>
       {items.map((item) => {
         const todoContent = todos[item]?.content || `[${item}]`
         const done = todos[item]?.done ? '(Y)' : '(N)' ?? '(?)'
-        return <li key={item} onClick={() => actions.toggleTodo(item)}>{done} {todoContent}</li>;
+        return <li
+          className={`${todos[item]?.done ? 'striked' : ''}`}
+          key={item}
+          onClick={() => actions.toggleTodo(item)}
+        >
+          {done} {todoContent}
+        </li>;
       })}
     </ul>
   );
