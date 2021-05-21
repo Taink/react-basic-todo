@@ -8,12 +8,19 @@ function AddTodo(props) {
         props.addTodo(newTodo)
         updateNewTodo('')
     }
+    const submitOnEnter = (e) => {
+        if (e.keyCode !== 13) return
+
+        e.preventDefault()
+        document.querySelector('.add-todo').click()
+    }
 
     return (
         <>
             <input
                 type="text"
                 onChange={e => updateNewTodo(e.target.value)}
+                onKeyUpCapture={submitOnEnter}
                 value={newTodo}
             />
             <button
