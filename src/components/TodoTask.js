@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { toggleTodo } from '../redux/action'
+import { toggleTodo, removeTodo } from '../redux/action'
 
 function TodoTask({ todo, item, ...actions }) {
   const content = todo?.content || `[${item}]`
@@ -12,12 +12,12 @@ function TodoTask({ todo, item, ...actions }) {
       onClick={() => actions.toggleTodo(item)}
     >
       {content}
-      <button onClick={()=> actions.removeTodo(item)}></button>
+      <button onClickCapture={()=> actions.removeTodo(item)}>Delete</button>
     </li>
   );
 }
 
 export default connect(
   null,
-  { toggleTodo }
+  { toggleTodo, removeTodo }
 )(TodoTask);

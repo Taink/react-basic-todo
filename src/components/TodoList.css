@@ -2,16 +2,22 @@
     margin: 0.5rem;
     list-style-type: none;
     user-select: none;
+    max-width: 50rem;
+    width: max-content;
+}
+
+.todo-list li button {
+    display: none;
+}
+
+.todo-list li:hover button {
+    display: inline-block;
 }
 
 .todo-list li:hover {
-    list-style-type: circle;
+    list-style-type: disc;
 }
 
 .striked {
     text-decoration: line-through;
-}
-
-.todo-list li .striked :hover {
-    list-style-type: disc;
 }
