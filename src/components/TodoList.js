@@ -1,12 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
+import { toggleTodo } from '../redux/action'
 
-function TodoList({ items, todos }) {
+function TodoList({ items, todos, ...actions }) {
   return (
     <ul>
       {items.map((item) => {
-        const todoContent = todos[item]?.content || item
-        return <li key={item}>{todoContent}</li>;
+        const todoContent = todos[item]?.content || `[${item}]`
+        const done = todos[item]?.done ? '(Y)' : '(N)' ?? '(?)'
+        return <li key={item} onClick={() => actions.toggleTodo(item)}>{done} {todoContent}</li>;
       })}
     </ul>
   );
@@ -20,4 +22,4 @@ const mapStateToProps = function (state) {
   };
 };
 
-export default connect(mapStateToProps)(TodoList);
+export default connect(mapStateToProps, { toggleTodo })(TodoList);

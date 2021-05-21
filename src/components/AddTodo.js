@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { addTodo } from '../redux/action'
 
-function AddTodo(props) {
+function AddTodo({ ...actions }) {
     const [newTodo, updateNewTodo] = useState('');
     const handleAdd = () => {
-        props.addTodo(newTodo)
+        actions.addTodo(newTodo)
         updateNewTodo('')
     }
     const submitOnEnter = (e) => {
